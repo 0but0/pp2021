@@ -10,5 +10,5 @@ Student Info
 =========================
 
 * Student Name: Đặng Thái Sơn
-* Student ID: BA9-053
+* Student ID: BA9-053 
 
