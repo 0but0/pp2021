@@ -1,3 +1,4 @@
+#For students
 class Student:
     def __init__(self, Student_management, id, name, dob):
         self.__id = id
@@ -5,12 +6,16 @@ class Student:
         self.__dob = dob
         Student_management.students.append(self)
         Student_management.student_id.append(self.__id)
+
     def get_id(self):
         return self.__id
+
     def get_name(self):
         return self.__name
+
     def get_dob(self):
         return self.__dob
+
 class Student_management:
     students = []
     student_id = []
@@ -23,6 +28,7 @@ class Student_management:
             else:
                 break
         self.snum = snum
+
     def student_infor(self):
         print("\n** STUDENT INFORMATION **")
         while True:
@@ -46,19 +52,25 @@ class Student_management:
             else:
                 break
         Student(self, id, name, dob)
+
     def print(self):
         for student in self.students:
             print(f"\tID: {student.get_id()}, Name: {student.get_name()}, Date of birth: {student.get_dob()}")
+
+#For courses
 class Course:
     def __init__(self, Course_management, id, name):
         self.__id = id
         self.__name = name
         Course_management.courses.append(self)
         Course_management.course_id.append(self.__id)
+
     def get_id(self):
         return self.__id
+
     def get_name(self):
         return self.__name
+
 class Course_management:
     courses = []
     course_id = []
@@ -71,6 +83,7 @@ class Course_management:
             else:
                 break
         self.cnum = cnum
+
     def course_infor(self):
         print("\n** COURSE INFORMATION **")
         while True:
@@ -88,21 +101,28 @@ class Course_management:
             else:
                 break
         Course(self, id, name)
+
     def print(self):
         for course in self.courses:
             print(f"\tID: {course.get_id()}, Name: {course.get_name()}")
+
+#For marks
 class Mark:
     def __init__(self, Mark_management, cid, sid, mark):
         self.__cid = cid
         self.__sid = sid
         self.__mark = mark
         Mark_management.marks.append(self)
+
     def get_cid(self):
         return self.__cid
+
     def get_sid(self):
         return self.__sid
+
     def get_mark(self):
         return self.__mark
+
 class Mark_management:
     marks = []
     def mark_infor(self):
@@ -128,6 +148,7 @@ class Mark_management:
                 print("Great! Here you go\n")
             else:
                 print("Wrong choice!!! Let's choose again")
+
     def print(self):
         cid = input("\nPlease choose the course ID that you want to see mark: ")
         for course in Course_management.courses:
@@ -140,11 +161,14 @@ class Mark_management:
                 for student in Student_management.students:
                     if student.get_id() == sid:
                         print(f"\tFull name: {student.get_name()}, ID: {student.get_id()}, Mark: {mark.get_mark()}")
+
+#For running the program
 class menu:
     s = Student_management()
     c = Course_management()
     m = Mark_management()
     def engine(self):
+        # INPUT INFORMATION FOR STUDENTS AND COURSES HERE
         print("\tFUNCTION MENU")
         print("""
         (1) Input student information
@@ -197,7 +221,11 @@ class menu:
                 exit()
             else:
                 print("Please choose again\n")
+
+        #INPUT MARKS HERE
         self.m.mark_infor()
+
+        #SHOW ALL INFORMATION HERE
         print("\n\tFUNCTION MENU")
         print("""
         (1) Display all students
@@ -217,6 +245,8 @@ class menu:
                 exit()
             else:
                 print("Invalid choice!!! Please choose again\n")
+
+#MAIN
 p = menu()
 p.engine()
 
